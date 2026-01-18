@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'My personal blog' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <style is:global>
+      :root {
+        --bg: #fafafa;
+        --text: #1a1a1a;
+        --muted: #666;
+        --accent: #0066cc;
+        --border: #e5e5e5;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #1a1a1a;
+          --text: #fafafa;
+          --muted: #999;
+          --accent: #66b3ff;
+          --border: #333;
+        }
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      nav {
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+      nav a {
+        margin-right: 1rem;
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/tags">Tags</a>
+      <a href="/rss.xml" class="rss">RSS</a>
+    </nav>
+    <slot />
+  </body>
+</html>

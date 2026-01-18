@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /Users/dannyyoustra/Documents/Web/Personal\\\\ Website && npm install:*)",
+      "Bash(cd:*)"
+    ]
+  }
+}

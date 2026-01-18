@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
+---
+
+<Base title="Tags">
+  <h1>Tags</h1>
+  <ul class="tags">
+    {tags.map((tag) => {
+      const count = posts.filter((p) => p.data.tags.includes(tag)).length;
+      return (
+        <li>
+          <a href={`/tags/${tag}`}>{tag}</a>
+          <span class="count">{count}</span>
+        </li>
+      );
+    })}
+  </ul>
+</Base>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .tags li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .tags a {
+    background: var(--border);
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  .tags a:hover {
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+  }
+  .count {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+</style>
