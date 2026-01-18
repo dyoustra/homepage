@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(cd /Users/dannyyoustra/Documents/Web/Personal\\\\ Website && npm install:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
