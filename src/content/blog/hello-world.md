@@ -1,6 +1,6 @@
 ---
-title: CS 373 Spring 2026: Danny Youstra
-description: CS 373: Blog #1: Week of 12 Jan - 18 Jan
+title: "CS 373 Spring 2026: Danny Youstra"
+description: "CS 373: Blog #1: Week of 12 Jan - 18 Jan"
 date: 2025-01-18
 tags: [intro, about-me, cs-373-blogs]
 ---
