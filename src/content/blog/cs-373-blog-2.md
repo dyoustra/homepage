@@ -1,6 +1,6 @@
 ---
 title: "Blog #2: Week of 19 Jan - 25 Jan"
-description:
+description: "My experience with the past week's work"
 date: 2026-01-25
 tags: [cs-373-blogs]
 ---
